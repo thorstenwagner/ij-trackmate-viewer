@@ -26,6 +26,34 @@ public class Track {
 		return id;
 	}
 	
+	/**
+	 * 
+	 * @return List of x positions
+	 */
+	public ArrayList<Double> getListX(){
+		return x;
+	}
+	
+	/**
+	 * 
+	 * @return List of y positions
+	 */
+	public ArrayList<Double> getListY(){
+		return y;
+	}
+	
+	/**
+	 * 
+	 * @return List of the frame numbers
+	 */
+	public ArrayList<Integer> getListFrame(){
+		return frame;
+	}
+	
+	/**
+	 * 
+	 * @return Return the number of steps
+	 */
 	public int getNumberOfSteps(){
 		return x.size();
 	}
