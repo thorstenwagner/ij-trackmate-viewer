@@ -32,7 +32,7 @@ import ij.process.FloatPolygon;
 import ij.process.ImageProcessor;
 
 /**
- * his little plugin loads an xml file exported by trackmate and 
+ * This little plugin loads an xml file exported by trackmate and 
  * display the tracks as overlay in an selected image. A track 
  * will be displayed when it is active and then disappear.
  * 
@@ -45,19 +45,16 @@ public class Trackmate_Viewer implements PlugIn {
 	private final int RADIUS_CIRCLE = 2;
 	@Override
 	public void run(String arg) {
-		/*
-		 * TODO: 1. Wähle XML Pfad 2. Lade XML File 3. Erzeuge Datenstruktur
-		 */
 
 		/*
-		 * 1. Wähle XML Pfad
+		 * 1. Choose xml path
 		 */
 
 		OpenDialog open = new OpenDialog("Choose the TrackMate xml file");
 		String filepath = open.getPath();
 
 		/*
-		 * 2. Lade XML File
+		 * 2. Load xml file
 		 */
 		Document doc = null;
 		try {
@@ -79,7 +76,7 @@ public class Trackmate_Viewer implements PlugIn {
 		}
 
 		/*
-		 * 3. Erzeuge Datenstruktur
+		 * 3. Build datastructure
 		 */
 		tracks = new ArrayList<Track>();
 
@@ -117,12 +114,14 @@ public class Trackmate_Viewer implements PlugIn {
 		Color cText = Color.YELLOW;
 		for(int i = 0; i < tracks.size(); i++){
 			Track t = tracks.get(i);
+			
+			//Pick random color
 			int[] rgb = new int[3];
 					do{
 						rgb[0] = randomGenerator.nextInt(256);
 						rgb[1] = randomGenerator.nextInt(256);
 						rgb[2] = randomGenerator.nextInt(256);
-					}while(rgb[0]<120&&rgb[1]<120&&rgb[2]<120); // Farbe muss hell genug sein!
+					}while(rgb[0]<120&&rgb[1]<120&&rgb[2]<120); // The color should be bright enough!
 					
 			Color cTrack = new Color(rgb[0],rgb[1],rgb[2]); //Track color
 			
